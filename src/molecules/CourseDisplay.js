@@ -1,8 +1,8 @@
 import React from "react";
-const CourseDisplay = ({clase,sede, profesor,nivel}) => {
+const CourseDisplay = ({course}) => {
     return(
         <>
-
+            Clase: {course.clase}, Sede: {course.sede}, Profesor/a: {course.profesor}, Nivel: {course.nivel}
         </>
     )
 };
