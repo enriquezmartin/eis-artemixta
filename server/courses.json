@@ -1,0 +1,32 @@
+[
+  {
+    "clase": "danza clásica",
+    "sede": "zona norte",
+    "profesor": "ffffffff",
+    "nivel": "intermedio"
+  },
+  {
+    "clase": "danza clásica",
+    "sede": "microcentro",
+    "profesor": "sssssss",
+    "nivel": "principiante"
+  },
+  {
+    "clase": "danza clásica",
+    "sede": "microcentro",
+    "profesor": "sdas",
+    "nivel": "principiante"
+  },
+  {
+    "clase": "danza clásica",
+    "sede": "microcentro",
+    "profesor": "pedrito",
+    "nivel": "avanzado"
+  },
+  {
+    "clase": "actuación",
+    "sede": "microcentro",
+    "profesor": "dfffas",
+    "nivel": "intermedio"
+  }
+]

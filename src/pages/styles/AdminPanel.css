@@ -1,0 +1,15 @@
+p{
+    margin: 1.5vh  0;
+}
+.adminPanelContainer{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input{
+    margin: 1.5vh;
+    width: 10rem;
+    max-width: 50vw;
+}

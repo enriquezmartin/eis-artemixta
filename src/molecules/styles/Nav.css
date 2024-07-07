@@ -1,0 +1,22 @@
+.inactivo{
+    text-decoration: none;
+    color: black;
+    background-color: darkgray;
+    padding: 10px 20px;
+}
+.inactivo:hover{
+    background-color: whitesmoke;
+}
+.activo {
+    text-decoration: none;
+    color: darkblue;
+    background-color: #b0a2da;
+    padding: 10px 20px;
+}
+
+nav{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
