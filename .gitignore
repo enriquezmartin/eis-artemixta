@@ -102,7 +102,6 @@ dist
 
 # vuepress v2.x temp and cache directory
 .temp
-.cache
 
 # Docusaurus cache and generated files
 .docusaurus
@@ -128,3 +127,42 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Dependencias de Node
+/node_modules
+
+# Salida de la build
+/build
+
+# Dependencias locales
+/.pnp
+.pnp.js
+
+# Configuración de editor
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivo de configuración del navegador
+.browserslistrc
+
+# Archivo de configuración de código estático
+
+# Archivos de pruebas (si estás usando Cypress o Puppeteer)
+cypress/screenshots
+cypress/videos
+
+# Archivos de coverage (cobertura de tests)
+
+# Configuraciones específicas de IDEs
+.idea
+*.iml
+
+# Archivo de configuración de SASS
+.sass-cache
