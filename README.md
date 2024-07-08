@@ -19,7 +19,7 @@ para instalar todas las dependencias usadas por React en el proyecto. Esto puede
 
         npm run build
 
-Si nos dice que la ejecución de scripts no está permitida (Windows 10/11) se debe abrir una consola como administrador y correr el comando:
+NOTA: Si nos dice que la ejecución de scripts no está permitida (Windows 10/11) se debe abrir una consola como administrador y correr el comando:
 
         Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 
@@ -27,4 +27,10 @@ Si nos dice que la ejecución de scripts no está permitida (Windows 10/11) se d
 
         npm start
 
-La misma se abre por defecto en http://localhost:3000
+La misma se abre por defecto en http://localhost:3000.
+
+- Levantar el servidor de nodejs que sirve como backend usando el comando
+
+        node server/server.js
+
+  El mismo escucha peticiones en http://localhost:5000.
