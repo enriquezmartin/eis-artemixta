@@ -1,38 +1,20 @@
 [
   {
-    "clase": "danza clásica",
-    "sede": "zona norte",
-    "profesor": "ffffffff",
+    "clase": "jazz",
+    "sede": "zona sur",
+    "profesor": "Profesor Jirafales",
+    "nivel": "principiante"
+  },
+  {
+    "clase": "canto",
+    "sede": "zona sur",
+    "profesor": "Manquete",
     "nivel": "intermedio"
   },
   {
-    "clase": "danza clásica",
+    "clase": "canto",
     "sede": "microcentro",
-    "profesor": "sssssss",
-    "nivel": "principiante"
-  },
-  {
-    "clase": "danza clásica",
-    "sede": "microcentro",
-    "profesor": "sdas",
-    "nivel": "principiante"
-  },
-  {
-    "clase": "danza clásica",
-    "sede": "microcentro",
-    "profesor": "pedrito",
+    "profesor": "Charles Xavier",
     "nivel": "avanzado"
-  },
-  {
-    "clase": "actuación",
-    "sede": "microcentro",
-    "profesor": "dfffas",
-    "nivel": "intermedio"
-  },
-  {
-    "clase": "actuación",
-    "sede": "microcentro",
-    "profesor": "GGGaesfsa",
-    "nivel": "intermedio"
   }
 ]

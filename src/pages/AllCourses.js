@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CourseDisplay from "../molecules/CourseDisplay";
+import './styles/AllCourses.css'
 
 const AllCourses = () => {
     //const navigate = useNavigate();
@@ -22,7 +23,7 @@ const AllCourses = () => {
     return (
         <div>
             <h2>Todos los cursos</h2>
-            <ul>
+            <ul className='course-list'>
                 {courses.map((course, index) => (
                     <li key={index}>
                         <CourseDisplay course={course} />
