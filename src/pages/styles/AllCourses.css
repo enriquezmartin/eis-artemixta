@@ -15,3 +15,27 @@ h2{
     max-width: 300px;
     box-sizing: border-box;
 }
+
+.course-list-item {
+    position: relative;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.delete-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: none;
+    background-color: indianred;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.course-list-item:hover .delete-button {
+    display: block;
+}

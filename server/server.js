@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -41,7 +41,15 @@ app.post('/api/courses', (req, res) => {
 
         try {
             const courses = JSON.parse(data);
-            courses.push(newCourse);
+            // Generar un ID único para el nuevo curso
+            let newId = 1;
+            if (courses.length > 0) {
+                const maxId = Math.max(...courses.map(p => p.id));
+                newId = maxId + 1;
+            }
+
+            const courseWithId = { id: newId, ...newCourse };
+            courses.push(courseWithId);
 
             fs.writeFile(filePath, JSON.stringify(courses, null, 2), (err) => {
                 if (err) {
@@ -53,6 +61,82 @@ app.post('/api/courses', (req, res) => {
         } catch (parseErr) {
             console.error('Error al parsear los cursos:', parseErr);
             res.status(500).json({ message: 'Error al parsear los cursos' });
+        }
+    });
+});
+
+app.delete('/api/courses/:id', (req, res) => {
+    const { id } = req.params;
+    const filePath = path.join(__dirname, 'courses.json');
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            res.status(500).send('Error reading courses file');
+        } else {
+            let courses = JSON.parse(data);
+            courses = courses.filter(course => course.id !== parseInt(id));
+            fs.writeFile(filePath, JSON.stringify(courses, null, 2), (err) => {
+                if (err) {
+                    res.status(500).send('Error writing courses file');
+                } else {
+                    res.send('Course deleted');
+                }
+            });
+        }
+    });
+});
+
+// Ruta para obtener todos los profesores
+app.get('/api/prof', (req, res) => {
+    const filePath = path.join(__dirname, 'prof.json');
+    fs.readFile(filePath, (err, data) => {
+        if (err) {
+            console.error('Error al leer los profesores:', err);
+            return res.status(500).json({ message: 'Error al leer los profesores' });
+        }
+        try {
+            const profs = JSON.parse(data);
+            res.status(200).json(profs);
+        } catch (parseErr) {
+            console.error('Error al parsear los profesores:', parseErr);
+            res.status(500).json({ message: 'Error al parsear los profesores' });
+        }
+    });
+});
+
+// Ruta para agregar un nuevo profesor
+app.post('/api/prof', (req, res) => {
+    const newProf = req.body;
+    const filePath = path.join(__dirname, 'prof.json');
+
+    fs.readFile(filePath, (err, data) => {
+        if (err) {
+            console.error('Error al leer los profesores:', err);
+            return res.status(500).json({ message: 'Error al leer los profesores' });
+        }
+
+        try {
+            const profs = JSON.parse(data);
+
+            // Generar un ID único para el nuevo profesor
+            let newId = 1;
+            if (profs.length > 0) {
+                const maxId = Math.max(...profs.map(p => p.id));
+                newId = maxId + 1;
+            }
+
+            const profWithId = { id: newId, ...newProf };
+            profs.push(profWithId);
+
+            fs.writeFile(filePath, JSON.stringify(profs, null, 2), (err) => {
+                if (err) {
+                    console.error('Error al guardar el profesor:', err);
+                    return res.status(500).json({ message: 'Error al guardar el profesor' });
+                }
+                res.status(201).json({ message: 'Profesor creado con éxito', id: newId });
+            });
+        } catch (parseErr) {
+            console.error('Error al parsear los profesores:', parseErr);
+            res.status(500).json({ message: 'Error al parsear los profesores' });
         }
     });
 });

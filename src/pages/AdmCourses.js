@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CourseDisplay from "../molecules/CourseDisplay";
-import './styles/AllCourses.css'
+import './styles/AllCourses.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const AllCourses = () => {
+const AdmCourses = () => {
     const [courses, setCourses] = useState([]);
     const [profs, setProfs] = useState([]);
     const [error, setError] = useState('');
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -15,8 +18,8 @@ const AllCourses = () => {
                 setCourses(coursesResponse.data);
                 setProfs(profsResponse.data);
             } catch (error) {
-                console.error('Error fetching data:', error);
-                setError('Error fetching data');
+                console.error('Error al recolectar los datos:', error);
+                setError('Error al recolectar los datos');
             }
         };
 
@@ -25,6 +28,21 @@ const AllCourses = () => {
 
     const findProfessorById = (id) => {
         return profs.find(prof => prof.id === id);
+    };
+
+    const handleDelete = async (id) => {
+        const confirmDelete = window.confirm('¿Estás seguro de que quieres borrar este curso?');
+        if (confirmDelete) {
+            try {
+                await axios.delete(`http://localhost:5000/api/courses/${id}`);
+                setCourses(courses.filter(course => course.id !== id));
+                toast.success('Curso borrado con éxito');
+            } catch (error) {
+                console.error('Error deleting course:', error);
+                setError('Error deleting course');
+                toast.error('Error al borrar el curso');
+            }
+        }
     };
 
     return (
@@ -36,12 +54,14 @@ const AllCourses = () => {
                     return (
                         <li key={index} className="course-list-item">
                             <CourseDisplay course={course} professor={professor} />
+                            <button className="delete-button" onClick={() => handleDelete(course.id)}>Borrar</button>
                         </li>
                     );
                 })}
             </ul>
+            <ToastContainer />
         </div>
     );
 };
-export default AllCourses
 
+export default AdmCourses;

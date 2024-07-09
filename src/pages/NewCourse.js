@@ -1,7 +1,7 @@
 import "./styles/AdminPanel.css";
 import CourseForm from "../molecules/CourseForm";
 
-const AdminPanel = () => {
+const NewCourse = () => {
     return (
         <div className='adminPanelContainer'>
             <p>Crear un curso</p>
@@ -10,4 +10,4 @@ const AdminPanel = () => {
     )
 };
 
-export default AdminPanel
+export default NewCourse

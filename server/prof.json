@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "nombre": "Mario",
+    "whatsapp": 2389470192,
+    "ig": "@marito328",
+    "dicta": "Danza clásica"
+  },
+  {
+    "id": 2,
+    "nombre": "adsda",
+    "whatsapp": "asdasdas",
+    "ig": "asdasdas",
+    "dicta": "jazz"
+  },
+  {
+    "id": 3,
+    "nombre": "Maria",
+    "whatsapp": "Encina",
+    "ig": "@maridance",
+    "dicta": "danza contemporánea"
+  },
+  {
+    "id": 4,
+    "nombre": "Paula",
+    "whatsapp": "Cha",
+    "ig": "@paulacha",
+    "dicta": "canto"
+  }
+]

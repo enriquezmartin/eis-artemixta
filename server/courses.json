@@ -1,20 +1,18 @@
 [
   {
-    "clase": "jazz",
-    "sede": "zona sur",
-    "profesor": "Profesor Jirafales",
-    "nivel": "principiante"
-  },
-  {
-    "clase": "canto",
-    "sede": "zona sur",
-    "profesor": "Manquete",
+    "id": 2,
+    "sede": "microcentro",
+    "fecha": "2024-07-25",
+    "hora": "19:43",
+    "profesorId": 3,
     "nivel": "intermedio"
   },
   {
-    "clase": "canto",
-    "sede": "microcentro",
-    "profesor": "Charles Xavier",
-    "nivel": "avanzado"
+    "id": 3,
+    "sede": "zona norte",
+    "fecha": "2024-07-26",
+    "hora": "21:45",
+    "profesorId": 4,
+    "nivel": "principiante"
   }
 ]
