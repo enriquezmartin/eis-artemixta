@@ -111,6 +111,7 @@ const CourseForm = () => {
                     </div>
                     <div className='col-75'>
                         <select name="profesorId" value={course.profesorId} onChange={handleChange} required>
+                            <option value="">Seleccione un curso...</option>
                             {profs.map((prof , index) => {
                                 return(
                                     <option value={prof.id} key={index}>{prof.nombre}  </option>
