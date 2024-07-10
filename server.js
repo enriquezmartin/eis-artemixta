@@ -7,9 +7,11 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(bodyParser.json());
-//app.use(cors());
+
+app.use(express.json());
+app.use(cors());
 app.use(express.static(path.join(__dirname, 'build')));
+
 
 // Ruta para obtener todos los cursos
 app.get('/api/courses', (req, res) => {
@@ -144,8 +146,6 @@ app.post('/api/prof', (req, res) => {
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
-    res.sendFile(path.join(__dirname, 'build', 'course.json'));
-    res.sendFile(path.join(__dirname, 'build', 'prof.json'));
 });
 
 app.listen(port, () => {
