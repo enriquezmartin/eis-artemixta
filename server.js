@@ -5,16 +5,7 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Configurar CORS para permitir solicitudes desde tu dominio
 const apiUrl = process.env.REACT_APP_API_URL;
-
-// Middleware para agregar encabezados CORS
-/*app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://artemixta-7caea27de0d2.herokuapp.com');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-});*/
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'build')));
@@ -25,7 +16,7 @@ let professors = require('./prof.json');
 
 // Obtener cursos
 app.get(`${apiUrl}/api/courses`, (req, res) => {
-    res.json(courses);
+    return res.json(courses);
 });
 
 // Crear curso
@@ -39,7 +30,7 @@ app.post(`${apiUrl}/api/courses`, (req, res) => {
 
 // Obtener profesores
 app.get(`${apiUrl}/api/prof`, (req, res) => {
-    res.json(professors);
+    return res.json(professors);
 });
 
 // Crear profesor
