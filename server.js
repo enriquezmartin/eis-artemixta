@@ -15,12 +15,12 @@ let courses = require(`./courses.json`);
 let professors = require('./prof.json');
 
 // Obtener cursos
-app.get(`${apiUrl}/api/courses`, (req, res) => {
+app.get(`/api/courses`, (req, res) => {
     return res.json(courses);
 });
 
 // Crear curso
-app.post(`${apiUrl}/api/courses`, (req, res) => {
+app.post(`/api/courses`, (req, res) => {
     const newCourse = req.body;
     newCourse.id = courses.length ? courses[courses.length - 1].id + 1 : 1;
     courses.push(newCourse);
@@ -29,12 +29,12 @@ app.post(`${apiUrl}/api/courses`, (req, res) => {
 });
 
 // Obtener profesores
-app.get(`${apiUrl}/api/prof`, (req, res) => {
+app.get(`/api/prof`, (req, res) => {
     return res.json(professors);
 });
 
 // Crear profesor
-app.post(`${apiUrl}/api/prof`, (req, res) => {
+app.post(`/api/prof`, (req, res) => {
     const newProfessor = req.body;
     newProfessor.id = professors.length ? professors[professors.length - 1].id + 1 : 1;
     professors.push(newProfessor);
@@ -42,7 +42,7 @@ app.post(`${apiUrl}/api/prof`, (req, res) => {
     res.status(201).json(newProfessor);
 });
 
-app.get(`${apiUrl}/*`, (req, res) => {
+app.get(`*`, (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
