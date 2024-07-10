@@ -6,6 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Configurar CORS para permitir solicitudes desde tu dominio
+const apiUrl = process.env.REACT_APP_API_URL;
 
 // Middleware para agregar encabezados CORS
 /*app.use((req, res, next) => {
@@ -19,16 +20,16 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(cors({ origin: "*", credentials: true })) //https://artemixta-7caea27de0d2.herokuapp.com
 
-let courses = require('./courses.json');
+let courses = require(`./courses.json`);
 let professors = require('./prof.json');
 
 // Obtener cursos
-app.get('/api/courses', (req, res) => {
+app.get(`${apiUrl}/api/courses`, (req, res) => {
     res.json(courses);
 });
 
 // Crear curso
-app.post('/api/courses', (req, res) => {
+app.post(`${apiUrl}/api/courses`, (req, res) => {
     const newCourse = req.body;
     newCourse.id = courses.length ? courses[courses.length - 1].id + 1 : 1;
     courses.push(newCourse);
@@ -37,12 +38,12 @@ app.post('/api/courses', (req, res) => {
 });
 
 // Obtener profesores
-app.get('/api/prof', (req, res) => {
+app.get(`${apiUrl}/api/prof`, (req, res) => {
     res.json(professors);
 });
 
 // Crear profesor
-app.post('/api/prof', (req, res) => {
+app.post(`${apiUrl}/api/prof`, (req, res) => {
     const newProfessor = req.body;
     newProfessor.id = professors.length ? professors[professors.length - 1].id + 1 : 1;
     professors.push(newProfessor);
