@@ -28,6 +28,21 @@ app.post(`/api/courses`, (req, res) => {
     res.status(201).json(newCourse);
 });
 
+// Eliminar curso
+app.delete(`/api/courses/:id`, (req, res) => {
+    const { id } = req.params;
+    const courseIndex = courses.findIndex(course => course.id === parseInt(id, 10));
+
+    if (courseIndex !== -1) {
+        courses.splice(courseIndex, 1);
+        fs.writeFileSync('courses.json', JSON.stringify(courses));
+        res.status(200).json({ message: 'Curso eliminado con éxito' });
+    } else {
+        res.status(404).json({ message: 'Curso no encontrado' });
+    }
+});
+
+
 // Obtener profesores
 app.get(`/api/prof`, (req, res) => {
     return res.json(professors);
