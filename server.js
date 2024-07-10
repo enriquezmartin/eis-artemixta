@@ -6,17 +6,14 @@ const PORT = process.env.PORT || 5000;
 
 // Configurar CORS para permitir solicitudes desde tu dominio
 
-const corsHeaders = {
-    'Access-Control-Allow-Headers': '*', // What headers are allowed. * is wildcard. Instead of using '*', you can specify a list of specific headers that are allowed, such as: Access-Control-Allow-Headers: X-Requested-With, Content-Type, Accept, Authorization.
-    'Access-Control-Allow-Methods': 'POST', // Allowed methods. Others could be GET, PUT, DELETE etc.
-    'Access-Control-Allow-Origin': '*', // This is URLs that are allowed to access the server. * is the wildcard character meaning any URL can.
-}
-const corsOptions = {
-    origin: 'https://artemixta-7caea27de0d2.herokuapp.com', // tu dominio
-    optionsSuccessStatus: 200
-};
+// Middleware para agregar encabezados CORS
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'https://artemixta-7caea27de0d2.herokuapp.com');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+});
 
-app.use(cors(corsOptions, corsHeaders));
 app.use(express.json());
 
 let courses = require('./courses.json');
