@@ -19,7 +19,6 @@ app.use(express.json());
 
 let courses = require('./courses.json');
 let professors = require('./prof.json');
-const path = require("path");
 
 // Obtener cursos
 app.get('/api/courses', (req, res) => {
