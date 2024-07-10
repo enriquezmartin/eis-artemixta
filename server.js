@@ -51,7 +51,7 @@ app.post(`${apiUrl}/api/prof`, (req, res) => {
     res.status(201).json(newProfessor);
 });
 
-app.get('*', (req, res) => {
+app.get(`${apiUrl}/*`, (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
