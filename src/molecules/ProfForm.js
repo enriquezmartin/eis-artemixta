@@ -50,7 +50,7 @@ const ProfForm = () => {
 
     return (
         <div className='container'>
-            <form onSubmit={handleSubmit}>
+            <form name='professorForm' onSubmit={handleSubmit}>
                 <div className='row'>
                     <div className='col-25'>
                         <label>Nombre y Apellido:</label>

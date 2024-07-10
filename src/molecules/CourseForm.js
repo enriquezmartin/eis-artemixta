@@ -71,7 +71,7 @@ const CourseForm = () => {
 
     return (
         <div className='container'>
-            <form onSubmit={handleSubmit}>
+            <form name='courseForm' onSubmit={handleSubmit}>
                 <div className='row'>
                     <div className='col-25'>
                         <label>Sede:</label>

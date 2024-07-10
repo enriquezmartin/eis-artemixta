@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'build')));
-app.use(cors({ origin: "https://artemixta-7caea27de0d2.herokuapp.com", credentials: true }))
+app.use(cors({ origin: "*", credentials: true })) //https://artemixta-7caea27de0d2.herokuapp.com
 
 let courses = require('./courses.json');
 let professors = require('./prof.json');
