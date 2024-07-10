@@ -18,6 +18,7 @@ app.use(express.json());
 
 let courses = require('./courses.json');
 let professors = require('./prof.json');
+const path = require("path");
 
 // Obtener cursos
 app.get('/api/courses', (req, res) => {
@@ -45,6 +46,10 @@ app.post('/api/prof', (req, res) => {
     professors.push(newProfessor);
     fs.writeFileSync('prof.json', JSON.stringify(professors));
     res.status(201).json(newProfessor);
+});
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 app.listen(PORT, () => {
