@@ -19,7 +19,7 @@ const CourseForm = () => {
     useEffect(() => {
         const fetchProf = async () => {
             try {
-                const profsResponse = await axios.get('${process.env.REACT_APP_API_URL}/api/prof');
+                const profsResponse = await axios.get(`${process.env.REACT_APP_API_URL}/api/prof`);
                 setProfs(profsResponse.data);
             } catch (error) {
                 console.error('Error fetching professors:', error);
@@ -50,7 +50,7 @@ const CourseForm = () => {
         };
 
         try {
-            await axios.post('${process.env.REACT_APP_API_URL}/api/courses', courseToSubmit);
+            await axios.post(`${process.env.REACT_APP_API_URL}/api/courses`, courseToSubmit);
             setMessage('Curso creado con éxito');
             setCourse({
                 sede: '',

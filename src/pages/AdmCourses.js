@@ -13,8 +13,8 @@ const AdmCourses = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const coursesResponse = await axios.get('${process.env.REACT_APP_API_URL}/api/courses');
-                const profsResponse = await axios.get('${process.env.REACT_APP_API_URL}/api/prof');
+                const coursesResponse = await axios.get(`${process.env.REACT_APP_API_URL}/api/courses`);
+                const profsResponse = await axios.get(`${process.env.REACT_APP_API_URL}/api/prof`);
                 setCourses(coursesResponse.data);
                 setProfs(profsResponse.data);
             } catch (error) {

@@ -30,7 +30,7 @@ const ProfForm = () => {
         }
 
         try {
-            await axios.post('${process.env.REACT_APP_API_URL}/api/prof', profesor);
+            await axios.post(`${process.env.REACT_APP_API_URL}/api/prof`, profesor);
             setMessage('Profesor creado con éxito');
             setProfesor({
                 nombre: '',
