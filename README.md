@@ -10,11 +10,12 @@ Repositorio de entrega para la materia Elementos de ingeniería de software - UN
 
         cd <nombre_del_directorio>
 
-- dentro del directorio, correr el comando: 
+- dentro del directorio, correr los comandos: 
 
+        git checkout develop
         npm install
 
-para instalar todas las dependencias usadas por React en el proyecto. Esto puede demorar unos minutos.
+para pasar a la branch que funciona localmente e instalar todas las dependencias usadas por React en el proyecto. Esto puede demorar unos minutos.
 - Compilar la aplicación usando el comando:
 
         npm run build
