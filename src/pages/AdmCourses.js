@@ -34,7 +34,7 @@ const AdmCourses = () => {
         const confirmDelete = window.confirm('¿Estás seguro de que quieres borrar este curso?');
         if (confirmDelete) {
             try {
-                await axios.delete(`http://localhost:5000/api/courses/${id}`);
+                await axios.delete(`${process.env.REACT_APP_API_URL}/api/courses/${id}`);
                 setCourses(courses.filter(course => course.id !== id));
                 toast.success('Curso borrado con éxito');
             } catch (error) {

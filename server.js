@@ -144,6 +144,8 @@ app.post('/api/prof', (req, res) => {
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'build', 'course.json'));
+    res.sendFile(path.join(__dirname, 'build', 'prof.json'));
 });
 
 app.listen(port, () => {
