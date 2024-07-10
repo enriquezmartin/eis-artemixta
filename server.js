@@ -5,11 +5,11 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const apiUrl = process.env.REACT_APP_API_URL;
+//const apiUrl = process.env.REACT_APP_API_URL;
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'build')));
-app.use(cors({ origin: "*", credentials: true })) //https://artemixta-7caea27de0d2.herokuapp.com
+app.use(cors({ origin: "https://artemixta-7caea27de0d2.herokuapp.com", credentials: true })) //https://artemixta-7caea27de0d2.herokuapp.com
 
 let courses = require(`./courses.json`);
 let professors = require('./prof.json');
